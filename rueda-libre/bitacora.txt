@@ -1,0 +1,16 @@
+Valores obtenidos al ejecutar el proyecto actual con la ayuda de la extensión live server: 
+
+    URL = http://127.0.0.1:5500/Ruta-Basica/rueda-libre/index.html
+    Protocolo = http
+    HOST = 127.0.0.1
+    PUERTO = 5500
+    RUTA = /Ruta-Basica/rueda-libre/index.html
+    METODO DE LA PETICIÓN = GET
+    CODIGO DE ESTADO = 200
+
+    -> Al ingresar una ruta inexistente: Cannot GET /Ruta-Basica/rueda-libre/peticiones.html
+
+Tecnologías y funcionalidad: 
+    HTML: Plasmar la información de manera estructurada por medio de etiquetas.
+    CSS: Dar color, forma y transiciones al contenido ya plasmado por medio de HTML.
+    JAVASCRIPT: Dar funcionalidad a los elementos de la pagina más allá de lo estetico.
