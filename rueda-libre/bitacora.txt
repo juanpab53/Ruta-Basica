@@ -14,3 +14,16 @@ Tecnologías y funcionalidad:
     HTML: Plasmar la información de manera estructurada por medio de etiquetas.
     CSS: Dar color, forma y transiciones al contenido ya plasmado por medio de HTML.
     JAVASCRIPT: Dar funcionalidad a los elementos de la pagina más allá de lo estetico.
+
+Rutas del sitio web:
+    Inicio: /Ruta-Basica/rueda-libre/index.html
+    Tarifas y rutas: /Ruta-Basica/rueda-libre/pages/tarifas.html
+    Reservas: /Ruta-Basica/rueda-libre/pages/reservas.html
+
+Rutas guiadas y datos publicados:
+    Río y Parques: 12 km, 2 horas, nivel fácil, $45.000 por persona.
+    Sabores de Barrio: 18 km, 3 horas, nivel medio, $60.000 por persona.
+    Reto Las Palmas: 25 km, 4 horas, nivel difícil, $85.000 por persona.
+
+Direcciones de los recorridos:
+    La página de tarifas publica el nombre, la distancia, la duración y el nivel de cada recorrido, pero no incluye direcciones paso a paso ni un trazado detallado para las rutas guiadas.
