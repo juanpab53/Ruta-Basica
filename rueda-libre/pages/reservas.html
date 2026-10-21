@@ -24,23 +24,74 @@
         </nav>
     </header>
     <main>
-    <section id="correo">
-        <p>
-            ¿Tienes alguna duda? Escríbenos a nuestro correo electrónico: <a
-                href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.
-        </p>
-    </section>
-    <section id="horarios">
-        <h2>
-            Horarios de atención
-        </h2>
-        <dl>
-            <dt>Lunes a Viernes</dt>
-            <dd>7:00 a. m. a 7:00 p. m.</dd>
-            <dt>Sábados, Domingos y Festivos</dt>
-            <dd>6:00 a. m. a 2:00 p. m.</dd>
-        </dl>
-    </section>
+        <section id="correo">
+            <p>
+                ¿Tienes alguna duda? Escríbenos a nuestro correo electrónico: <a
+                    href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.
+            </p>
+        </section>
+        <section id="horarios">
+            <h2>
+                Horarios de atención
+            </h2>
+            <dl>
+                <dt>Lunes a Viernes</dt>
+                <dd>7:00 a. m. a 7:00 p. m.</dd>
+                <dt>Sábados, Domingos y Festivos</dt>
+                <dd>6:00 a. m. a 2:00 p. m.</dd>
+            </dl>
+        </section>
+        <section id="formulario-reserva">
+            <h2>¿Quieres reservar?</h2>
+            <em>Para reservar con nosotros llena el siguiente <strong>Formulario</strong> con los detalles de tu
+                reserva, te esperamos!.</em>
+            <form action="" method="post">
+                <fieldset>
+                    <legend>Tus Datos</legend>
+                    <label for="nombre-usuario">Nombre Completo</label>
+                    <input id="nombre-usuario" type="text" name="nombre" placeholder="Pepito Peréz" required><br>
+
+                    <label for="cc-usuario">Número de documento</label>
+                    <input id="cc-usuario" name="id-usuario" type="text" inputmode="numeric" pattern="[0-9]*"
+                        placeholder="ej: 123185132020"><br>
+
+                    <label for="email-usuario">Correo electrónico</label>
+                    <input id="email-usuario" type="email" name="email" placeholder="ejemplo@gmail.com" required><br>
+
+                </fieldset>
+                <fieldset>
+                    <legend>Detalles de tu reserva</legend>
+                    <label for="tipo-bicicleta">Tipo de Bicicleta</label>
+                    <select name="tipo-bicicleta" id="bicicleta">
+                        <option value="urbana">Urbana</option>
+                        <option value="montana">Montaña</option>
+                        <option value="electrica">Eléctrica</option>
+                    </select><br>
+                    <label for="tipo-plan">Plan</label>
+                    <select name="tipo-plan" id="plan">
+                        <option value="hora">1 Hora</option>
+                        <option value="medio-dia">Medio Día</option>
+                        <option value="dia">Día Completo</option>
+                    </select><br>
+                    <label for="tipo-recorrido">Recorrido guiado</label>
+                    <select name="tipo-recorrido" id="recorrido">
+                        <option value="dafault"> Ninguno </option>
+                        <option value="rio-parques"> Río y Parques</option>
+                        <option value="sabores-barrio">Sabores de Barrio</option>
+                        <option value="palmas">Reto Las Palmas</option>
+                    </select><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Detalles de tu recorrido</legend>
+                    <label for="comentarios">Comentarios sobre tu reserva</label>
+                    <textarea name="comentarios" id="comentarios"></textarea><br>
+                    <label for="politicas-alquiler">Aceptación de la politicas de alquiler</label>
+                    <input id="politicas" type="radio" name="politicas-alquiler">Acepto
+                    <input id="politicas" type="radio" name="politicas-alquiler">No acepto<br>
+                </fieldset>
+                <input type="submit" value="Enviar" />
+            </form>
+        </section>
     </main>
     <footer>
         <div id="nombre">

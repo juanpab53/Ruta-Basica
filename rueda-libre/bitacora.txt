@@ -27,3 +27,49 @@ Rutas guiadas y datos publicados:
 
 Direcciones de los recorridos:
     La página de tarifas publica el nombre, la distancia, la duración y el nivel de cada recorrido, pero no incluye direcciones paso a paso ni un trazado detallado para las rutas guiadas.
+
+Esquema de regiones de las páginas:
+
+Inicio (index.html):
+    Encabezado: logo y título "Rueda Libre".
+    Navegación: enlaces a Inicio, Tarifas y rutas, y Reservas.
+    Contenido principal:
+        Sección "¿Quiénes somos?": presentación e imagen.
+        Sección "Nuestros servicios": descripción e imágenes de los servicios.
+            Artículos: Alquiler por Horas y Días; Tours Guiados Urbanos; Bicicletas Eléctricas y de Montaña.
+        Sección "¿Cómo alquilar?": pasos para alquilar.
+        Sección "Beneficios de nuestro servicio": lista de beneficios e imagen; contenido complementario.
+        Sección "Encuéntranos": ubicación y correo de contacto.
+    Pie: nombre del negocio, correo y año.
+
+Tarifas y rutas (pages/tarifas.html):
+    Encabezado: logo y título "Tarifas".
+    Navegación: enlaces a Inicio, Tarifas y rutas, y Reservas.
+    Contenido principal:
+        Sección "Por Tipo de Bicicleta": tabla de tarifas.
+        Sección "Tours Guiados": tabla con recorridos, distancia, duración, nivel y precio.
+        Sección "Información Adicional": nota, horarios de salida y lista de objetos recomendados; contenido complementario.
+    Artículos: no hay.
+    Pie: nombre del negocio, correo y año.
+
+Reservas (pages/reservas.html):
+    Encabezado: logo y título "Reserva tu bicicleta".
+    Navegación: enlaces a Inicio, Tarifas y rutas, y Reservas.
+    Contenido principal:
+        Sección de correo: contacto para dudas.
+        Sección de horarios: horas de atención.
+        Sección del formulario de reserva: datos del cliente, alquiler y confirmación.
+    Artículos y contenido complementario independiente: no hay.
+    Pie: nombre del negocio, correo y año.
+
+Elección de controles del formulario:
+    Nombre: campo de texto, porque se escribe libremente y puede incluir espacios.
+    Correo electrónico: campo email, porque el navegador puede validar el formato de la dirección.
+    Tipo de bicicleta: lista desplegable, porque se elige una opción de un catálogo cerrado.
+    Comentarios: área de texto, porque permite escribir una respuesta libre de varias palabras.
+    Aceptación de políticas: casilla obligatoria, porque solo se registra si el cliente acepta; dejarla sin marcar significa que no acepta.
+
+Justificación de tres elecciones:
+    1. El correo usa type="email" en lugar de un campo genérico para comprobar el formato antes de enviar.
+    2. El tipo de bicicleta usa una lista desplegable porque las opciones están definidas y solo se debe elegir una.
+    3. La aceptación de políticas usa una casilla obligatoria porque es una confirmación afirmativa única; no hace falta presentar "Acepto" y "No acepto" como opciones de radio.
