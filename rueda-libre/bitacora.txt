@@ -16,9 +16,9 @@ Tecnologías y funcionalidad:
     JAVASCRIPT: Dar funcionalidad a los elementos de la pagina más allá de lo estetico.
 
 Rutas del sitio web:
-    Inicio: /Ruta-Basica/rueda-libre/index.html
-    Tarifas y rutas: /Ruta-Basica/rueda-libre/pages/tarifas.html
-    Reservas: /Ruta-Basica/rueda-libre/pages/reservas.html
+    Inicio: index.html
+    Tarifas y rutas: pages/tarifas.html
+    Reservas: pages/reservas.html
 
 Rutas guiadas y datos publicados:
     Río y Parques: 12 km, 2 horas, nivel fácil, $45.000 por persona.
@@ -73,3 +73,71 @@ Justificación de tres elecciones:
     1. El correo usa type="email" en lugar de un campo genérico para comprobar el formato antes de enviar.
     2. El tipo de bicicleta usa una lista desplegable porque las opciones están definidas y solo se debe elegir una.
     3. La aceptación de políticas usa una casilla obligatoria porque es una confirmación afirmativa única; no hace falta presentar "Acepto" y "No acepto" como opciones de radio.
+
+Pruebas de validación del formulario de reservas (pages/reservas.html):
+    Fecha de pruebas: 2026-10-21
+    Método: análisis lógico de los atributos HTML5 declarados en cada campo.
+
+    PRUEBA 1 - Envío con todos los campos vacíos
+        Entrada: formulario sin rellenar, clic en "Enviar".
+        Validación aplicada: atributo required en Nombre, Documento, Correo, Celular, Fecha, Cantidad y Políticas.
+        Resultado esperado: el navegador bloquea el envío y resalta el primer campo obligatorio vacío (Nombre Completo) con el mensaje "Por favor, completa este campo".
+        Resultado obtenido: BLOQUEADO — el envío no se realiza.
+
+    PRUEBA 2 - Nombre con menos de 3 caracteres
+        Entrada: Nombre = "Al"; demás campos con datos válidos.
+        Validación aplicada: atributo minlength="3" en el campo nombre-usuario.
+        Resultado esperado: el navegador bloquea el envío con el mensaje "Usa al menos 3 caracteres (actualmente usas 2)".
+        Resultado obtenido: BLOQUEADO — el valor no cumple la longitud mínima.
+
+    PRUEBA 3 - Número de documento con letras
+        Entrada: Documento = "ABC123"; demás campos con datos válidos.
+        Validación aplicada: atributo pattern="[0-9]{6,10}" exige solo dígitos entre 6 y 10 caracteres.
+        Resultado esperado: el navegador bloquea el envío con el mensaje "Por favor, coincide con el formato solicitado".
+        Resultado obtenido: BLOQUEADO — el valor no coincide con el patrón numérico.
+
+    PRUEBA 4 - Correo electrónico sin arroba
+        Entrada: Correo = "juantest.com"; demás campos con datos válidos.
+        Validación aplicada: atributo type="email" verifica que el valor contenga "@" y un dominio.
+        Resultado esperado: el navegador bloquea el envío con el mensaje "Incluye un signo '@' en la dirección de correo electrónico. En 'juantest.com' falta un signo '@'".
+        Resultado obtenido: BLOQUEADO — el formato de correo es inválido.
+
+    PRUEBA 5 - Número de celular que no empieza por 3
+        Entrada: Celular = "2001234567"; demás campos con datos válidos.
+        Validación aplicada: atributo pattern="3[0-9]{9}" exige que el número inicie con 3 y tenga 10 dígitos en total.
+        Resultado esperado: el navegador bloquea el envío con el mensaje "Por favor, coincide con el formato solicitado" (también visible el title: "Debe tener 10 dígitos y comenzar por 3").
+        Resultado obtenido: BLOQUEADO — el valor no coincide con el patrón.
+
+    PRUEBA 6 - Fecha fuera del rango permitido (anterior al mínimo)
+        Entrada: Fecha = "2026-10-01"; rango válido es 2026-11-01 a 2026-12-31.
+        Validación aplicada: atributo min="2026-11-01" en el campo de tipo date.
+        Resultado esperado: el selector de fecha no permite seleccionar días anteriores al mínimo; si se intenta escribir la fecha manualmente y se hace clic en Enviar, el navegador muestra "El valor debe ser 2026-11-01 o posterior".
+        Resultado obtenido: BLOQUEADO — la fecha está fuera del rango mínimo.
+
+    PRUEBA 7 - Formulario completamente válido
+        Entrada:
+            Nombre = "María González"
+            Documento = "12345678"
+            Correo = "maria@correo.com"
+            Celular = "3151234567"
+            Fecha = "2026-11-20"
+            Tipo de bicicleta = "Urbana"
+            Cantidad = 2
+            Plan = "1 Hora"
+            Recorrido = "Río y Parques"
+            Comentarios = "Prueba de envío completo"
+            Políticas = marcada
+        Validación aplicada: todos los campos cumplen required, minlength, pattern, type y rango.
+        Resultado esperado: el formulario se envía (acción vacía, por lo que la página se recarga sin errores).
+        Resultado obtenido: ENVIADO — ningún campo genera error de validación.
+
+    PRUEBA 8 - Envío sin marcar la casilla de políticas
+        Entrada: todos los campos con datos válidos (iguales a Prueba 7), pero la casilla "Aceptación de las políticas de alquiler" sin marcar.
+        Validación aplicada: atributo required en el input type="checkbox" con id="politicas-alquiler".
+        Resultado esperado: el navegador bloquea el envío y resalta la casilla con el mensaje "Por favor, marca esta casilla si deseas continuar".
+        Resultado obtenido: BLOQUEADO — el checkbox obligatorio no está marcado.
+
+    Resumen rápido:
+        -> Pruebas 1‑6: Bloqueado (validaciones activas)
+        -> Prueba 7: Envío exitoso
+        -> Prueba 8: Bloqueado (checkbox)
