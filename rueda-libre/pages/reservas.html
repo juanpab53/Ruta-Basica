@@ -52,29 +52,38 @@
                     <input id="nombre-usuario" type="text" name="nombre" placeholder="Pepito Peréz" required><br>
 
                     <label for="cc-usuario">Número de documento</label>
-                    <input id="cc-usuario" name="id-usuario" type="text" inputmode="numeric" pattern="[0-9]*"
-                        placeholder="ej: 123185132020"><br>
+                    <input id="cc-usuario" name="cc-usuario" type="tel" placeholder="ej: 1020529870"><br>
 
                     <label for="email-usuario">Correo electrónico</label>
                     <input id="email-usuario" type="email" name="email" placeholder="ejemplo@gmail.com" required><br>
 
+                    <label for="celular">Número de Celular</label>
+                    <input id="celular" name="celular" type="tel" placeholder="ej: 3001234567" required><br>
+
+                    <label for="fecha">Fecha de tu reserva</label>
+                    <input id="fecha" name="fecha" type="date" required><br>
                 </fieldset>
                 <fieldset>
                     <legend>Detalles de tu reserva</legend>
                     <label for="tipo-bicicleta">Tipo de Bicicleta</label>
-                    <select name="tipo-bicicleta" id="bicicleta">
+                    <select name="tipo-bicicleta" id="tipo-bicicleta">
                         <option value="urbana">Urbana</option>
                         <option value="montana">Montaña</option>
                         <option value="electrica">Eléctrica</option>
                     </select><br>
+
+                    <label for="cantidad-bicicletas">Cantidad de bicicletas</label>
+                    <input id="cantidad-bicicletas" name="cantidad-bicicletas" type="number" min="1" max="10"
+                        required><br>
+
                     <label for="tipo-plan">Plan</label>
-                    <select name="tipo-plan" id="plan">
+                    <select name="tipo-plan" id="tipo-plan">
                         <option value="hora">1 Hora</option>
                         <option value="medio-dia">Medio Día</option>
                         <option value="dia">Día Completo</option>
                     </select><br>
                     <label for="tipo-recorrido">Recorrido guiado</label>
-                    <select name="tipo-recorrido" id="recorrido">
+                    <select name="tipo-recorrido" id="tipo-recorrido">
                         <option value="dafault"> Ninguno </option>
                         <option value="rio-parques"> Río y Parques</option>
                         <option value="sabores-barrio">Sabores de Barrio</option>
@@ -82,14 +91,14 @@
                     </select><br>
                 </fieldset>
                 <fieldset>
-                    <legend>Detalles de tu recorrido</legend>
+                    <legend>Detalles</legend>
                     <label for="comentarios">Comentarios sobre tu reserva</label>
                     <textarea name="comentarios" id="comentarios"></textarea><br>
-                    <label for="politicas-alquiler">Aceptación de la politicas de alquiler</label>
-                    <input id="politicas" type="radio" name="politicas-alquiler">Acepto
-                    <input id="politicas" type="radio" name="politicas-alquiler">No acepto<br>
+                    <label for="politicas-alquiler">Aceptación de las políticas de alquiler</label><br>
+                    <input type="radio" name="politicas-alquiler" id="politicas-acepto">Acepto
+                    <input type="radio" name="politicas-alquiler" id="politicas-no-acepto">No acepto<br>           
                 </fieldset>
-                <input type="submit" value="Enviar" />
+                <button type="submit" name="submit">Enviar</button>
             </form>
         </section>
     </main>
