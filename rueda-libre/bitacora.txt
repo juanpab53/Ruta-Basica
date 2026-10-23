@@ -141,3 +141,39 @@ Pruebas de validación del formulario de reservas (pages/reservas.html):
         -> Pruebas 1‑6: Bloqueado (validaciones activas)
         -> Prueba 7: Envío exitoso
         -> Prueba 8: Bloqueado (checkbox)
+Contrastes: 
+    Analisis de contraste de los colores realizado bajo WCAG:
+
+        -> Texto blanco sobre Verde Ruta: 5.31:1 
+            (Cumple con el minimo para texto normal, es muy bueno para texto grande, componentes de interfaz y elementos gráficos).
+
+        -> Texto blanco sobre Naranja Pedal: 2.21:1 
+            (No cumple ninguna de las pautas de accesibilidad).
+
+        -> Azul noche sobre Naranja Pedal: 7.2:1 
+            (Cumple para cualquier funcionalidad)
+
+        -> Azul noche sobre Crema: 14.4:1 
+            (Cumple para cualquier funcionalidad)
+
+        -> Gris asfalto sobre Crema: 5.56:1 
+            (Cumple con el minimo para texto normal, es muy bueno para texto grande, componentes de interfaz y elementos gráficos).
+
+        -> Verde ruta sobre Crema: 4.93:1
+            (Cumple con el minimo para texto normal, es muy bueno para texto grande, componentes de interfaz y elementos gráficos).
+
+        -> Naranja pedal sobre Crema: 2.05:1
+            (No cumple ninguna de las pautas de accesibilidad).
+
+        -> Blanco sobre Azul noche: 15.97:1
+            (Cumple para cualquier funcionalidad).
+
+Mapa de uso de color:
+    -> Texto normal: Gris Asfalto sobre Crema (5.56:1 — cumple AA para texto normal)
+       [Naranja Pedal sobre Crema solo da 2.05:1 y no cumple ninguna pauta; queda excluido del texto corrido]
+    -> Texto grande: Azul Noche sobre Crema (14.4:1 — cumple AAA; ideal para h1, h2, h3)
+    -> Texto de enlaces: Azul Noche sobre Crema (14.4:1 — cumple para cualquier funcionalidad)
+    -> Texto de botones: Azul Noche sobre Naranja Pedal (7.2:1 — cumple AAA; Naranja Pedal se reserva exclusivamente para botones/CTA donde va acompañado de Azul Noche)
+    -> Fondo principal: Crema (base de página; maximiza el contraste con Azul Noche, Gris Asfalto y Verde Ruta)
+    -> Fondo de encabezado/pie: Azul Noche (fondo oscuro; texto Blanco sobre Azul Noche da 15.97:1 — cumple AAA)
+    -> Íconos y etiquetas de estado: Verde Ruta sobre Crema (4.93:1 — cumple AA para texto grande y componentes de interfaz; no usar para texto de cuerpo pequeño)
