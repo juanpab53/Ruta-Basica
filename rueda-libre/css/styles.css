@@ -1,0 +1,42 @@
+:root {
+    --color-verde-ruta: #1e7a4f;
+    --color-naranja-pedal: #f39a2b;
+    --color-azul-noche: #14213d;
+    --color-crema: #faf6ef;
+    --color-gris-asfalto: #5b6470;
+
+    --font-title: "Montserrat", sans-serif;
+    --font-body: "Open Sans", sans-serif;
+
+    --fw-regular: 400;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    --spacing-pequeno: 0.5rem;
+    --spacing-mediano: 1rem;
+    --spacing-grande: 2rem;
+    --spacing-extra-grande: 3rem;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-azul-noche);
+    background-color: var(--color-crema);
+    font-weight: var(--fw-regular);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold);
+}
+
+strong,
+.highlight,
+nav a {
+    font-weight: var(--fw-semibold);
+}
