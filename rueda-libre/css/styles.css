@@ -36,7 +36,53 @@ h6 {
 }
 
 strong,
-.highlight,
 nav a {
     font-weight: var(--fw-semibold);
+}
+
+#menu a {
+    color: var(--color-gris-asfalto);
+    text-decoration: none;
+}
+
+#menu a.activo {
+    color: var(--color-verde-ruta);
+    font-weight: var(--fw-bold);
+}
+
+#menu a:hover,
+#menu a:focus {
+    color: var(--color-azul-noche);
+    text-decoration: underline;
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: var(--color-naranja-pedal);
+    color: var(--color-azul-noche);
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold);
+    text-decoration: none;
+    padding: var(--spacing-mediano) var(--spacing-grande);
+    border: none;
+}
+
+.btn-cta:hover,
+.btn-cta:focus {
+    background-color: var(--color-azul-noche);
+    color: var(--color-crema);
+}
+
+.btn-cta:active {
+    background-color: var(--color-verde-ruta);
+    color: var(--color-crema);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+a:focus,
+button:focus {
+    outline: 2px solid var(--color-azul-noche);
+    outline-offset: 2px;
 }

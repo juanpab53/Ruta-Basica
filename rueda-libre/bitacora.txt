@@ -141,8 +141,9 @@ Pruebas de validación del formulario de reservas (pages/reservas.html):
         -> Pruebas 1‑6: Bloqueado (validaciones activas)
         -> Prueba 7: Envío exitoso
         -> Prueba 8: Bloqueado (checkbox)
+
 Contrastes: 
-    Analisis de contraste de los colores realizado bajo WCAG:
+    Análisis de contraste de los colores realizado bajo WCAG:
 
         -> Texto blanco sobre Verde Ruta: 5.31:1 
             (Cumple con el minimo para texto normal, es muy bueno para texto grande, componentes de interfaz y elementos gráficos).
@@ -177,3 +178,16 @@ Mapa de uso de color:
     -> Fondo principal: Crema (base de página; maximiza el contraste con Azul Noche, Gris Asfalto y Verde Ruta)
     -> Fondo de encabezado/pie: Azul Noche (fondo oscuro; texto Blanco sobre Azul Noche da 15.97:1 — cumple AAA)
     -> Íconos y etiquetas de estado: Verde Ruta sobre Crema (4.93:1 — cumple AA para texto grande y componentes de interfaz; no usar para texto de cuerpo pequeño)
+
+PROBLEMA: Conflicto de especificidad en los estilos del menú
+
+    Descripción del problema:
+        Los estilos de la clase .activo no se aplicaban a los enlaces del menú cuando estos se encontraban dentro de #menu. 
+        El selector '#menu a' tiene mayor prioridad que '.activo', sus reglas prevalecían sobre las de .activo, impidiendo que el color y el grosor de fuente del enlace activo se mostraran correctamente.
+
+    Solución dada:
+        Se modificó el selector de '.activo' a '#menu a.activo'.
+        De esta manera, las reglas para el estado activo ganan sobre #menu a sin necesidad de usar !important ni estilos en línea. 
+        Los estilos aplicados fueron:
+            color: var(--color-verde-ruta);
+            font-weight: var(--fw-bold);
