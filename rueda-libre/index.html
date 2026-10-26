@@ -7,11 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Rueda Libre | Alquiler de bicicletas en Medellín</title>
+    <title>Rueda Libre | Inicio</title>
   </head>
 
   <body>
@@ -29,7 +29,9 @@
       <h1>Rueda Libre</h1>
       <nav id="menu">
         <ul>
-          <li><a href="index.html" class="activo">Inicio</a></li>
+          <li>
+            <a href="index.html" class="activo" aria-current="page">Inicio</a>
+          </li>
           <li><a href="pages/tarifas.html">Tarifas y rutas</a></li>
           <li><a href="pages/reservas.html">Reservas</a></li>
         </ul>
@@ -54,7 +56,7 @@
       <section id="nuestros-servicios">
         <h2>Nuestros servicios</h2>
         <article>
-          <h3>Alquiler por Horas y Días</h3>
+          <h3>Alquiler por horas y días</h3>
           <p>
             Disfruta de la flexibilidad total ajustada a tus tiempos. El
             alquiler de cualquier bicicleta
@@ -64,7 +66,7 @@
           </p>
         </article>
         <article>
-          <h3>Tours Guiados Urbanos</h3>
+          <h3>Tours guiados urbanos</h3>
           <p>
             Recorre los puntos más icónicos y las joyas ocultas de la ciudad
             junto a nuestros guías locales.
@@ -74,8 +76,46 @@
             <a href="pages/tarifas.html">Consulta los recorridos</a>
           </p>
         </article>
+      </section>
+      <section id="tipos-bicicletas">
+        <h2>Tipos de bicicletas</h2>
         <article>
-          <h3>Bicicletas Eléctricas y de Montaña</h3>
+          <h3>Bicicletas</h3>
+          <p>
+            Muévete a tu propio ritmo y explora cada rincón de la ciudad con
+            total libertad. Todas las unidades cuentan con diseño liviano,
+            cambios fluidos y mantenimiento al día. Una excelente opción si
+            buscas una alternativa práctica, ecológica y ligera para tus
+            desplazamientos diarios.
+          </p>
+          <p><a href="pages/reservas.html" class="btn-cta">Reserva ahora</a></p>
+          <img
+            src="img/bicycle.jpg"
+            alt="Dibujo de una bicicleta"
+            width="500"
+            height="500"
+          />
+        </article>
+        <article>
+          <h3>Bicicletas de montaña</h3>
+          <p>
+            Domina cualquier terreno irregular y desafía con seguridad senderos,
+            trochas y caminos destapados. Todas las unidades cuentan con
+            suspensión de alto rendimiento, llantas de gran agarre y
+            mantenimiento al día. Una excelente opción si buscas una aventura
+            llena de adrenalina y máxima estabilidad en la naturaleza.
+          </p>
+          <p><a href="pages/reservas.html" class="btn-cta">Reserva ahora</a></p>
+          <img
+            src="img/mountain-bicycle.jpg"
+            alt="Dibujo de una bicicleta"
+            width="500"
+            height="500"
+          />
+        </article>
+        <article>
+          <span class="annotation-new">Nuevo</span>
+          <h3>Bicicletas eléctricas</h3>
           <p>
             Supera cualquier pendiente sin esfuerzo o aventúrate por senderos
             naturales.
@@ -85,9 +125,9 @@
             >. Una excelente opción si prefieres un trayecto
             <em>sin fatiga excesiva</em>.
           </p>
-          <p><a href="pages/reservas.html" class="btn-cta">Reserva Ahora</a></p>
+          <p><a href="pages/reservas.html" class="btn-cta">Reserva ahora</a></p>
           <img
-            src="img/bicycle.jpg"
+            src="img/electric-bicycle.jpg"
             alt="Dibujo de una bicicleta"
             width="500"
             height="500"
@@ -161,5 +201,13 @@
       </div>
       <div id="anio">&copy; 2026</div>
     </footer>
+    <a
+      class="whatsapp-flotante"
+      href="https://wa.me/573000000000"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp en una pestaña nueva"
+      >WhatsApp</a
+    >
   </body>
 </html>

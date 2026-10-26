@@ -1,9 +1,14 @@
+/* ==========================================================================
+   1. Variables de diseño
+   ========================================================================== */
+
 :root {
     --color-verde-ruta: #1e7a4f;
     --color-naranja-pedal: #f39a2b;
     --color-azul-noche: #14213d;
     --color-crema: #faf6ef;
     --color-gris-asfalto: #5b6470;
+    --color-whatsapp: #25d366;
 
     --font-title: "Montserrat", sans-serif;
     --font-body: "Open Sans", sans-serif;
@@ -18,6 +23,10 @@
     --spacing-extra-grande: 3rem;
 }
 
+/* ==========================================================================
+   2. Reset y estilos base
+   ========================================================================== */
+
 *,
 *::before,
 *::after {
@@ -31,17 +40,9 @@ body {
     font-weight: var(--fw-regular);
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: var(--spacing-mediano);
-    margin: var(--spacing-mediano) var(--spacing-grande);
-}
-
-header h1 {
-    margin: 0;
-}
+/* ==========================================================================
+   3. Tipografía
+   ========================================================================== */
 
 h1,
 h2,
@@ -56,6 +57,22 @@ h6 {
 strong,
 nav a {
     font-weight: var(--fw-semibold);
+}
+
+/* ==========================================================================
+   4. Encabezado y navegación
+   ========================================================================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--spacing-mediano);
+    margin: var(--spacing-mediano) var(--spacing-grande);
+}
+
+header h1 {
+    margin: 0;
 }
 
 #menu ul {
@@ -82,19 +99,29 @@ nav a {
     text-decoration: underline;
 }
 
-.btn-cta {
-    display: inline-block;
-    background-color: var(--color-naranja-pedal);
+/* ==========================================================================
+   5. Botones, enlaces y estados de foco
+   ========================================================================== */
+
+.btn-cta,
+.whatsapp-flotante {
     color: var(--color-azul-noche);
     font-family: var(--font-title);
     font-weight: var(--fw-bold);
     text-decoration: none;
     padding: var(--spacing-mediano) var(--spacing-grande);
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: var(--color-naranja-pedal);
     border: none;
 }
 
 .btn-cta:hover,
-.btn-cta:focus {
+.btn-cta:focus,
+.whatsapp-flotante:hover,
+.whatsapp-flotante:focus {
     background-color: var(--color-azul-noche);
     color: var(--color-crema);
 }
@@ -113,36 +140,22 @@ button:focus {
     outline-offset: 0.125rem;
 }
 
+/* ==========================================================================
+   6. Layout principal
+   ========================================================================== */
+
 main {
     max-width: 70rem;
     margin: 0 auto;
     padding: 0 var(--spacing-mediano);
 }
 
-#quienes-somos {
-    min-height: 60vh;
-}
-
-#quienes-somos img,
-#nuestros-servicios article img,
-#beneficios img {
-    display: block;
-}
-
-#nuestros-servicios article img,
-#beneficios img {
-    width: 100%;
-}
-
-#quienes-somos img {
-    width: auto;
-    max-width: 100%;
-    height: 60vh;
-    margin: 0 auto;
-    object-fit: contain;
-}
+/* ==========================================================================
+   7. Secciones y tarjetas
+   ========================================================================== */
 
 #nuestros-servicios article,
+#tipos-bicicletas article,
 #como-alquilar,
 #beneficios,
 #encuentranos,
@@ -155,26 +168,92 @@ section#horarios,
     padding: var(--spacing-grande);
     border: 1px solid var(--color-gris-asfalto);
     border-radius: var(--spacing-pequeno);
+}
+
+#nuestros-servicios article,
+#como-alquilar,
+#beneficios,
+#encuentranos,
+section#horarios,
+#formulario-reserva,
+#tablas-tipos-bicicleta,
+#tabla-tipo-tours,
+#informacion-adicional,
+#correo-contacto {
     margin-bottom: var(--spacing-grande);
 }
 
-main.con-aside {
+/* ==========================================================================
+   8. Página de inicio
+   ========================================================================== */
+
+#quienes-somos {
+    min-height: 60vh;
+}
+
+#quienes-somos img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 60vh;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+#nuestros-servicios {
     display: flex;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#nuestros-servicios article img,
+#beneficios img {
+    display: block;
+    width: 100%;
+}
+
+#tipos-bicicletas {
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-grande);
+    justify-content: center;
+    margin-bottom: var(--spacing-grande);
 }
 
-main.con-aside > #correo-contacto {
-    flex: 0 0 18rem;
-    margin-bottom: 0;
-    position: sticky;
-    top: var(--spacing-mediano);
+#tipos-bicicletas > h2 {
+    flex: 1 0 100%;
+    margin: 0;
 }
 
-main.con-aside > .contenido-reservas {
-    flex: 1;
-    min-width: 0;
+#tipos-bicicletas article {
+    flex: 1 1 20rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-pequeno);
+    align-items: center;
+    text-align: center;
 }
+
+#tipos-bicicletas article img {
+    max-width: 100%;
+    height: 200px;
+    border-radius: var(--spacing-pequeno);
+}
+
+#tipos-bicicletas article span.annotation-new {
+    background-color: var(--color-verde-ruta);
+    color: var(--color-crema);
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold);
+    padding: var(--spacing-pequeno) var(--spacing-mediano);
+    border-radius: var(--spacing-extra-grande);
+    align-self: flex-end;
+}
+
+/* ==========================================================================
+   9. Tarifas y tablas
+   ========================================================================== */
 
 table {
     width: 100%;
@@ -194,6 +273,28 @@ thead th {
     color: var(--color-crema);
     font-family: var(--font-title);
     font-weight: var(--fw-bold);
+}
+
+/* ==========================================================================
+   10. Reservas y formulario
+   ========================================================================== */
+
+main.con-aside {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-grande);
+}
+
+main.con-aside > #correo-contacto {
+    flex: 0 0 18rem;
+    margin-bottom: 0;
+    position: sticky;
+    top: var(--spacing-mediano);
+}
+
+main.con-aside > .contenido-reservas {
+    flex: 1;
+    min-width: 0;
 }
 
 #formulario-reserva form {
@@ -237,12 +338,44 @@ thead th {
     resize: vertical;
 }
 
-#formulario-reserva input[type="checkbox"] {
+#formulario-reserva .campo-checkbox {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-pequeno);
+    align-items: center;
+}
+
+#formulario-reserva .campo-checkbox input[type="checkbox"] {
     width: auto;
-    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+#formulario-reserva .campo-checkbox label {
+    display: inline;
+    font-weight: var(--fw-regular);
 }
 
 #formulario-reserva .btn-cta {
     align-self: flex-start;
     padding: var(--spacing-mediano) var(--spacing-extra-grande);
+}
+
+/* ==========================================================================
+   11. WhatsApp flotante
+   ========================================================================== */
+
+.whatsapp-flotante {
+    position: fixed;
+    right: var(--spacing-mediano);
+    bottom: var(--spacing-mediano);
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-pequeno);
+
+    background-color: var(--color-whatsapp);
+    border-radius: var(--spacing-extra-grande);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
 }

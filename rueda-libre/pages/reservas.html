@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&amp;family=Open+Sans:wght@400;600&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/styles.css" />
@@ -26,12 +26,16 @@
           />
         </a>
       </div>
-      <h1>Reserva tu bicicleta</h1>
+      <h1>Reservas</h1>
       <nav id="menu">
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="tarifas.html">Tarifas y rutas</a></li>
-          <li><a href="reservas.html" class="activo">Reservas</a></li>
+          <li>
+            <a href="reservas.html" class="activo" aria-current="page"
+              >Reservas</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -163,26 +167,30 @@
               /><br />
             </fieldset>
             <fieldset>
-              <legend>Adicionales</legend>
+              <legend>Comentarios</legend>
               <label for="comentarios">Comentarios sobre tu reserva</label>
               <textarea
                 name="comentarios"
                 id="comentarios"
                 maxlength="300"
-              ></textarea
-              ><br />
-              <input
-                type="checkbox"
-                name="politicas-alquiler"
-                id="politicas-alquiler"
-                required
-              />
-              <label for="politicas-alquiler"
-                >Aceptación de las políticas de alquiler</label
-              ><br />
+              ></textarea>
+            </fieldset>
+            <fieldset>
+              <legend>Términos y condiciones</legend>
+              <div class="campo-checkbox">
+                <input
+                  type="checkbox"
+                  name="politicas-alquiler"
+                  id="politicas-alquiler"
+                  required
+                />
+                <label for="politicas-alquiler"
+                  >Aceptación de las políticas de alquiler</label
+                >
+              </div>
             </fieldset>
             <button type="submit" name="submit" class="btn-cta">
-              Reservar ahora
+              Reserva ahora
             </button>
           </form>
         </section>
@@ -195,5 +203,13 @@
       </div>
       <div id="anio">&copy; 2026</div>
     </footer>
+    <a
+      class="whatsapp-flotante"
+      href="https://wa.me/573000000000"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp en una pestaña nueva"
+      >WhatsApp</a
+    >
   </body>
 </html>
