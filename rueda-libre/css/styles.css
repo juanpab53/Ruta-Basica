@@ -18,11 +18,29 @@
     --spacing-extra-grande: 3rem;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--font-body);
     color: var(--color-azul-noche);
     background-color: var(--color-crema);
     font-weight: var(--fw-regular);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--spacing-mediano);
+    margin: var(--spacing-mediano) var(--spacing-grande);
+}
+
+header h1 {
+    margin: 0;
 }
 
 h1,
@@ -38,6 +56,14 @@ h6 {
 strong,
 nav a {
     font-weight: var(--fw-semibold);
+}
+
+#menu ul {
+    display: flex;
+    gap: var(--spacing-grande);
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 #menu a {
@@ -83,6 +109,140 @@ select:focus,
 textarea:focus,
 a:focus,
 button:focus {
-    outline: 2px solid var(--color-azul-noche);
-    outline-offset: 2px;
+    outline: 0.125rem solid var(--color-azul-noche);
+    outline-offset: 0.125rem;
+}
+
+main {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 0 var(--spacing-mediano);
+}
+
+#quienes-somos {
+    min-height: 60vh;
+}
+
+#quienes-somos img,
+#nuestros-servicios article img,
+#beneficios img {
+    display: block;
+}
+
+#nuestros-servicios article img,
+#beneficios img {
+    width: 100%;
+}
+
+#quienes-somos img {
+    width: auto;
+    max-width: 100%;
+    height: 60vh;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+#nuestros-servicios article,
+#como-alquilar,
+#beneficios,
+#encuentranos,
+section#horarios,
+#formulario-reserva,
+#tablas-tipos-bicicleta,
+#tabla-tipo-tours,
+#informacion-adicional,
+#correo-contacto {
+    padding: var(--spacing-grande);
+    border: 1px solid var(--color-gris-asfalto);
+    border-radius: var(--spacing-pequeno);
+    margin-bottom: var(--spacing-grande);
+}
+
+main.con-aside {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-grande);
+}
+
+main.con-aside > #correo-contacto {
+    flex: 0 0 18rem;
+    margin-bottom: 0;
+    position: sticky;
+    top: var(--spacing-mediano);
+}
+
+main.con-aside > .contenido-reservas {
+    flex: 1;
+    min-width: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-grande);
+}
+
+th,
+td {
+    padding: var(--spacing-mediano);
+    border: 1px solid var(--color-gris-asfalto);
+    text-align: center;
+}
+
+thead th {
+    background-color: var(--color-verde-ruta);
+    color: var(--color-crema);
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold);
+}
+
+#formulario-reserva form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-grande);
+}
+
+#formulario-reserva fieldset {
+    border: 1px solid var(--color-gris-asfalto);
+    border-radius: var(--spacing-pequeno);
+    padding: var(--spacing-grande);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-mediano);
+}
+
+#formulario-reserva legend {
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold);
+    padding: 0 var(--spacing-pequeno);
+}
+
+#formulario-reserva label {
+    display: block;
+    font-weight: var(--fw-semibold);
+}
+
+#formulario-reserva input,
+#formulario-reserva select,
+#formulario-reserva textarea {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-pequeno);
+    border: 1px solid var(--color-gris-asfalto);
+    border-radius: var(--spacing-pequeno);
+}
+
+#formulario-reserva textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+#formulario-reserva input[type="checkbox"] {
+    width: auto;
+    display: inline-block;
+}
+
+#formulario-reserva .btn-cta {
+    align-self: flex-start;
+    padding: var(--spacing-mediano) var(--spacing-extra-grande);
 }

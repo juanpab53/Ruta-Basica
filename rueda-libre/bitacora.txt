@@ -12,7 +12,7 @@ Valores obtenidos al ejecutar el proyecto actual con la ayuda de la extensión l
 
 Tecnologías y funcionalidad: 
     HTML: Plasmar la información de manera estructurada por medio de etiquetas.
-    CSS: Dar color, forma y transiciones al contenido ya plasmado por medio de HTML.
+    CSS: Dar color, forma y distribución al contenido ya plasmado por medio de HTML.
     JAVASCRIPT: Dar funcionalidad a los elementos de la pagina más allá de lo estetico.
 
 Rutas del sitio web:
@@ -56,9 +56,10 @@ Reservas (pages/reservas.html):
     Encabezado: logo y título "Reserva tu bicicleta".
     Navegación: enlaces a Inicio, Tarifas y rutas, y Reservas.
     Contenido principal:
-        Sección de correo: contacto para dudas.
-        Sección de horarios: horas de atención.
-        Sección del formulario de reserva: datos del cliente, alquiler y confirmación.
+        Aside de correo a la izquierda: contacto para dudas.
+        Columna derecha:
+            Sección de horarios: horas de atención.
+            Sección del formulario de reserva: datos del cliente, alquiler y confirmación.
     Artículos y contenido complementario independiente: no hay.
     Pie: nombre del negocio, correo y año.
 
@@ -191,3 +192,48 @@ PROBLEMA: Conflicto de especificidad en los estilos del menú
         Los estilos aplicados fueron:
             color: var(--color-verde-ruta);
             font-weight: var(--fw-bold);
+
+VERIFICACIÓN DEL BOX MODEL Y MEDICIÓN DE ANCHO
+
+    box-sizing:
+        *, *::before y *::after usan box-sizing: border-box (verificado en DevTools > Computed).
+
+    Modelo de caja de una tarjeta (article de #nuestros-servicios):
+        padding: 2rem (32px) por lado.
+        border: 1px por lado.
+        margin-bottom: 2rem (32px); no afecta el ancho.
+        border-radius: 0.5rem.
+
+    Medición controlada en DevTools con width: 40rem (640px):
+        content-box:
+            contenido = 640px
+            padding = 32px + 32px = 64px
+            borde = 1px + 1px = 2px
+            ancho total = 640px + 64px + 2px = 706px
+
+        border-box:
+            ancho total = 640px
+            contenido = 640px - 64px - 2px = 574px
+
+        Resultado: border-box mantiene el ancho total declarado; content-box lo supera en 66px.
+
+    Otras propiedades verificadas en DevTools > Computed:
+        main: max-width = 70rem (1120px) y márgenes izquierdo/derecho automáticos.
+        header: display = flex (logo, título y menú en una fila).
+        #menu ul: display = flex (opciones del menú en una fila).
+        main.con-aside: display = flex (aside a la izquierda).
+        .contenido-reservas: display = block (horarios arriba del formulario).
+        main.con-aside > .contenido-reservas: flex = 1 y min-width = 0.
+        #quienes-somos: min-height = 60vh (540px con una ventana de 900px de alto).
+        #quienes-somos img: width = auto, max-width = 100%, height = 60vh, margen horizontal automático y object-fit = contain.
+        table: width = 100%.
+        #nuestros-servicios article img: display = block.
+        #formulario-reserva input: display = block.
+        .btn-cta: display = inline-block.
+        #formulario-reserva input[type="checkbox"]: display = inline-block.
+
+    Unidades usadas:
+        px: únicamente en los bordes (1px).
+        %: width de tablas, imágenes e inputs.
+        rem: espaciado, radios, tipografía, max-width, flex-basis y min-height.
+        vh: min-height de #quienes-somos y height de su imagen.
