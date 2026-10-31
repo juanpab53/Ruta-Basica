@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. Variables de diseño
    ========================================================================== */
-
+ 
 :root {
     --color-verde-ruta: #1e7a4f;
     --color-naranja-pedal: #f39a2b;
@@ -9,36 +9,37 @@
     --color-crema: #faf6ef;
     --color-gris-asfalto: #5b6470;
     --color-whatsapp: #25d366;
-
+ 
     --font-title: "Montserrat", sans-serif;
     --font-body: "Open Sans", sans-serif;
-
+ 
     --fw-regular: 400;
     --fw-semibold: 600;
     --fw-bold: 700;
-
+ 
     --spacing-pequeno: 0.5rem;
     --spacing-mediano: 1rem;
     --spacing-grande: 2rem;
     --spacing-extra-grande: 3rem;
-
+ 
     --radius-pequeno: 0.5rem;
     --radius-pastilla: 3rem;
-
+ 
     --ancho-maximo: 70rem;
-    --padding-tarjeta: var(--spacing-grande);
+    /* Móvil: relleno compacto. Desde tablet sube a --spacing-grande */
+    --padding-tarjeta: var(--spacing-mediano);
 }
 
 /* ==========================================================================
    2. Reset y estilos base
    ========================================================================== */
-
+ 
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
-
+ 
 body {
     margin: 0;
     min-height: 100vh;
@@ -50,16 +51,16 @@ body {
     font-weight: var(--fw-regular);
     line-height: 1.6;
 }
-
+ 
 img {
     max-width: 100%;
     height: auto;
 }
 
 /* ==========================================================================
-    3. Tipografía
-    ========================================================================== */
-
+   3. Tipografía
+   ========================================================================== */
+ 
 h1,
 h2,
 h3 {
@@ -67,15 +68,15 @@ h3 {
     font-weight: var(--fw-bold);
     line-height: 1.25;
 }
-
+ 
 strong {
     font-weight: var(--fw-semibold);
 }
 
 /* ==========================================================================
-    4. Accesibilidad (utilidades)
-    ========================================================================== */
-
+   4. Accesibilidad (utilidades)
+   ========================================================================== */
+ 
 .sr-only {
     position: absolute;
     width: 1px;
@@ -87,12 +88,12 @@ strong {
     white-space: nowrap;
     border: 0;
 }
-
+ 
 .saltar {
     position: absolute;
     left: -9999px;
 }
-
+ 
 .saltar:focus-visible {
     left: var(--spacing-mediano);
     top: var(--spacing-mediano);
@@ -103,22 +104,19 @@ strong {
 
 /* ==========================================================================
    5. Encabezado y navegación
+   Móvil: nombre arriba y menú debajo, centrado.
    ========================================================================== */
-
+ 
 .encabezado {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-grande);
+    gap: var(--spacing-mediano);
     margin-bottom: var(--spacing-grande);
-    padding-block: var(--spacing-mediano);
-    /* Alinea el contenido con el borde del main, con un mínimo de 'aire' a los lados */
-    padding-inline: max(var(--spacing-grande),
-            calc((100% - var(--ancho-maximo)) / 2 + var(--spacing-mediano)));
+    padding: var(--spacing-mediano);
     border-bottom: 1px solid var(--color-gris-asfalto);
 }
-
+ 
 .marca {
     display: inline-flex;
     align-items: center;
@@ -126,7 +124,7 @@ strong {
     color: var(--color-azul-noche);
     text-decoration: none;
 }
-
+ 
 .marca-nombre {
     font-family: var(--font-title);
     font-weight: var(--fw-bold);
@@ -137,15 +135,17 @@ strong {
 .pie__menu ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-mediano);
     margin: 0;
     padding: 0;
     list-style: none;
 }
-
+ 
 .menu ul {
     gap: var(--spacing-pequeno);
 }
-
+ 
 .menu a {
     display: block;
     padding: var(--spacing-pequeno) var(--spacing-mediano);
@@ -153,12 +153,12 @@ strong {
     color: var(--color-gris-asfalto);
     text-decoration: none;
 }
-
+ 
 .menu a[aria-current="page"] {
     color: var(--color-verde-ruta);
     font-weight: var(--fw-bold);
 }
-
+ 
 .menu a:hover,
 .menu a:focus-visible {
     color: var(--color-azul-noche);
@@ -168,7 +168,7 @@ strong {
 /* ==========================================================================
    6. Botones, enlaces y estados de foco
    ========================================================================== */
-
+ 
 .btn-cta,
 .whatsapp-flotante {
     color: var(--color-azul-noche);
@@ -177,7 +177,7 @@ strong {
     text-decoration: none;
     padding: var(--spacing-mediano) var(--spacing-grande);
 }
-
+ 
 .btn-cta {
     display: inline-block;
     background-color: var(--color-naranja-pedal);
@@ -185,7 +185,7 @@ strong {
     font-size: 1rem;
     cursor: pointer;
 }
-
+ 
 .btn-cta:hover,
 .btn-cta:focus-visible,
 .whatsapp-flotante:hover,
@@ -193,7 +193,7 @@ strong {
     background-color: var(--color-azul-noche);
     color: var(--color-crema);
 }
-
+ 
 .btn-cta:active {
     background-color: var(--color-verde-ruta);
     color: var(--color-crema);
@@ -212,7 +212,7 @@ button:focus-visible,
 /* ==========================================================================
    7. Layout principal
    ========================================================================== */
-
+ 
 main {
     flex: 1;
     width: 100%;
@@ -220,16 +220,16 @@ main {
     margin: 0 auto;
     padding: 0 var(--spacing-mediano) 5rem;
 }
-
+ 
 main>h1,
 .contenido-reservas>h1 {
     margin: var(--spacing-grande) 0;
 }
 
 /* ==========================================================================
-    8. Secciones y tarjetas
-    ========================================================================== */
-
+   8. Secciones y tarjetas
+   ========================================================================== */
+ 
 #nuestros-servicios article,
 #tipos-bicicletas article,
 #nuestra-flota article,
@@ -249,23 +249,43 @@ main>h1,
 }
 
 /* ==========================================================================
-    9. Página de inicio
-    ========================================================================== */
-
+   9. Página de inicio
+   ========================================================================== */
+ 
 #quienes-somos {
-    min-height: 60vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: var(--spacing-grande);
 }
-
+ 
 #quienes-somos img {
     display: block;
-    width: auto;
-    height: 60vh;
-    margin: 0 auto var(--spacing-grande);
-    object-fit: contain;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: var(--radius-pequeno);
 }
-
-/* Servicios y tipos de bicicletas: filas flexibles con título a todo el ancho */
+ 
+#nuestras-rutas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-grande);
+    margin-bottom: var(--spacing-grande);
+}
+ 
+#nuestras-rutas>h2 {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+ 
+#nuestras-rutas article img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-pequeno);
+}
+ 
 #nuestros-servicios,
 #tipos-bicicletas {
     display: flex;
@@ -273,28 +293,27 @@ main>h1,
     gap: var(--spacing-grande);
     margin-bottom: var(--spacing-grande);
 }
-
+ 
 #tipos-bicicletas {
     justify-content: center;
 }
-
+ 
 #nuestros-servicios>h2,
 #tipos-bicicletas>h2 {
     flex: 1 0 100%;
     margin: 0;
 }
-
+ 
 #nuestros-servicios article,
 #tipos-bicicletas article {
     flex: 1 1 20rem;
 }
-
+ 
 #beneficios img {
     display: block;
     width: 100%;
 }
-
-/* Tarjeta de bicicleta (Tipos de bicicletas y Nuestra flota) */
+ 
 #tipos-bicicletas article,
 .tarjeta-bici {
     display: flex;
@@ -303,42 +322,40 @@ main>h1,
     align-items: center;
     text-align: center;
 }
-
+ 
 #tipos-bicicletas article img,
 .tarjeta-bici img {
     height: 200px;
     object-fit: cover;
     border-radius: var(--radius-pequeno);
 }
-
+ 
 #tipos-bicicletas article .btn-cta,
 .tarjeta-bici .btn-cta {
     border-radius: var(--radius-pastilla);
 }
-
-/* Solo en la flota: "Reservar" siempre al final de la tarjeta */
+ 
 .tarjeta-bici .btn-cta {
     margin-top: auto;
 }
-
-/* Nuestra flota: cuadrícula adaptable sin media queries */
+ 
 #nuestra-flota {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: var(--spacing-grande);
     margin-bottom: var(--spacing-grande);
 }
-
+ 
 #nuestra-flota>h2 {
     grid-column: 1 / -1;
     margin: 0;
 }
-
+ 
 #nuestra-flota article h3,
 #nuestra-flota article p {
     margin: 0;
 }
-
+ 
 .annotation-new {
     display: inline-block;
     margin-left: var(--spacing-pequeno);
@@ -359,37 +376,38 @@ main>h1,
 .tabla-scroll {
     overflow-x: auto;
 }
-
+ 
 table {
     width: 100%;
     min-width: 32rem;
     border-collapse: collapse;
 }
-
+ 
 caption {
     padding-bottom: var(--spacing-pequeno);
     font-weight: var(--fw-semibold);
     text-align: left;
 }
-
+ 
 th,
 td {
-    padding: var(--spacing-mediano);
+    padding: 0.5rem 0.25rem;
     border: 1px solid var(--color-gris-asfalto);
+    font-size: 0.75rem;
     text-align: center;
 }
-
+ 
 thead th {
     background-color: var(--color-verde-ruta);
     color: var(--color-crema);
     font-family: var(--font-title);
 }
-
+ 
 tbody th[scope="row"] {
     text-align: left;
     font-weight: var(--fw-semibold);
 }
-
+ 
 #informacion-adicional a {
     border-radius: var(--radius-pastilla);
 }
@@ -401,37 +419,31 @@ tbody th[scope="row"] {
 dt {
     font-weight: var(--fw-semibold);
 }
-
+ 
 dd {
     margin: 0 0 var(--spacing-mediano);
 }
-
+ 
 main.con-aside {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--spacing-grande);
 }
-
-/* El aside va después del formulario en el HTML; order lo deja a la izquierda */
+ 
 main.con-aside>#correo-contacto {
-    order: -1;
-    flex: 0 0 18rem;
     margin-bottom: 0;
-    position: sticky;
-    top: var(--spacing-mediano);
 }
-
+ 
 main.con-aside>.contenido-reservas {
-    flex: 1;
     min-width: 0;
 }
-
+ 
 #formulario-reserva form {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-grande);
 }
-
+ 
 #formulario-reserva fieldset {
     min-width: 0;
     margin: 0;
@@ -442,28 +454,28 @@ main.con-aside>.contenido-reservas {
     flex-direction: column;
     gap: var(--spacing-mediano);
 }
-
+ 
 #formulario-reserva legend {
     font-family: var(--font-title);
     font-weight: var(--fw-bold);
     padding: 0 var(--spacing-pequeno);
 }
-
+ 
 .campo {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
-
+ 
 .ayuda {
     color: var(--color-gris-asfalto);
     font-size: 0.875rem;
 }
-
+ 
 #formulario-reserva label {
     font-weight: var(--fw-semibold);
 }
-
+ 
 #formulario-reserva input,
 #formulario-reserva select,
 #formulario-reserva textarea {
@@ -474,33 +486,44 @@ main.con-aside>.contenido-reservas {
     font-family: inherit;
     font-size: 1rem;
 }
-
+ 
 #formulario-reserva textarea {
     min-height: 8rem;
     resize: vertical;
 }
-
+ 
 #formulario-reserva .campo-checkbox {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-pequeno);
     align-items: center;
 }
-
+ 
 #formulario-reserva .campo-checkbox input[type="checkbox"] {
     width: auto;
     padding: 0;
     margin: 0;
 }
-
+ 
 #formulario-reserva .campo-checkbox label {
     font-weight: var(--fw-regular);
 }
-
+ 
 #formulario-reserva .btn-cta {
     align-self: flex-start;
     padding: var(--spacing-mediano) var(--spacing-extra-grande);
     border-radius: var(--radius-pastilla);
+}
+ 
+#formulario-reserva .fila-campos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-mediano);
+}
+ 
+#formulario-reserva .fila-campos .campo {
+    flex: 1;
+    min-width: 0;
 }
 
 /* ==========================================================================
@@ -509,45 +532,41 @@ main.con-aside>.contenido-reservas {
 
 .pie {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     gap: var(--spacing-grande);
     margin-top: var(--spacing-extra-grande);
     padding: var(--spacing-grande);
     background-color: var(--color-azul-noche);
     color: var(--color-crema);
+    text-align: center;
 }
-
+ 
 .pie p,
 .pie address {
     margin: 0;
 }
-
+ 
 .pie__nombre {
     font-family: var(--font-title);
     font-weight: var(--fw-bold);
     font-size: 1.25rem;
 }
-
+ 
 .pie__contacto {
     font-style: normal;
 }
-
+ 
 .pie a {
     color: var(--color-crema);
 }
-
+ 
 .pie a:hover {
     color: var(--color-naranja-pedal);
 }
-
+ 
 .pie a:focus-visible {
     outline-color: var(--color-crema);
-}
-
-.pie__menu ul {
-    gap: var(--spacing-grande);
 }
 
 /* ==========================================================================
@@ -561,11 +580,11 @@ main.con-aside>.contenido-reservas {
     z-index: 1000;
     width: fit-content;
     margin: 0 var(--spacing-mediano) var(--spacing-mediano) auto;
-
+ 
     display: flex;
     align-items: center;
     gap: var(--spacing-pequeno);
-
+ 
     background-color: var(--color-whatsapp);
     border-radius: var(--radius-pastilla);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
@@ -575,39 +594,71 @@ main.con-aside>.contenido-reservas {
    14. Responsive
    ========================================================================== */
 
-@media (max-width: 48rem) {
+   /* Tablet: desde 768px */
+@media (min-width: 768px) {
     :root {
-        --padding-tarjeta: var(--spacing-mediano);
+        --padding-tarjeta: var(--spacing-grande);
     }
-
+ 
     .encabezado {
-        justify-content: center;
-        gap: var(--spacing-mediano);
-        padding-inline: var(--spacing-mediano);
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: var(--spacing-grande);
+        /* Alinea el contenido con el borde del main, con un mínimo de aire a los lados */
+        padding-inline: max(var(--spacing-grande),
+                calc((100% - var(--ancho-maximo)) / 2 + var(--spacing-mediano)));
     }
-
-    .menu ul {
-        justify-content: center;
+ 
+    #quienes-somos {
+        grid-template-columns: 1fr 1fr;
     }
-
-    .pie__menu ul {
-        justify-content: center;
-        gap: var(--spacing-mediano);
+ 
+    #nuestras-rutas {
+        grid-template-columns: repeat(3, 1fr);
     }
-
-    main.con-aside {
-        flex-direction: column;
+ 
+    th,
+    td {
+        padding: var(--spacing-mediano);
+        font-size: 1rem;
     }
-
-    main.con-aside>#correo-contacto {
-        order: 0;
-        flex: none;
-        width: 100%;
-        position: static;
+ 
+    #formulario-reserva .fila-campos {
+        flex-direction: row;
     }
-
+ 
     .pie {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        text-align: left;
+    }
+ 
+    .pie__menu ul {
+        gap: var(--spacing-grande);
+    }
+}
+ 
+/* Escritorio: desde 1200px */
+@media (min-width: 1200px) {
+    
+    #quienes-somos {
+        min-height: calc(100vh - 13.8rem);
+    }
+ 
+    #quienes-somos img {
+        height: 60vh;
+    }
+ 
+    main.con-aside {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+    }
+ 
+    main.con-aside>#correo-contacto {
+        position: sticky;
+        top: var(--spacing-mediano);
     }
 }
