@@ -248,20 +248,46 @@ main>h1,
     margin-bottom: var(--spacing-grande);
 }
 
+#nuestras-rutas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-grande);
+    margin-bottom: var(--spacing-grande);
+}
+
+#nuestras-rutas > h2 {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+#nuestras-rutas article {
+    margin-bottom: 0; /* ya manda el gap */
+}
+
+#nuestras-rutas article img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-pequeno);
+}
+
 /* ==========================================================================
     9. Página de inicio
     ========================================================================== */
 
 #quienes-somos {
-    min-height: 60vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--spacing-grande);
+    min-height: calc(100vh - 13.8rem);
 }
 
 #quienes-somos img {
     display: block;
-    width: auto;
+    width: 100%;
     height: 60vh;
-    margin: 0 auto var(--spacing-grande);
-    object-fit: contain;
+    object-fit: cover;
     border-radius: var(--radius-pequeno);
 }
 
@@ -407,22 +433,20 @@ dd {
 }
 
 main.con-aside {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
     gap: var(--spacing-grande);
 }
 
 /* El aside va después del formulario en el HTML; order lo deja a la izquierda */
 main.con-aside>#correo-contacto {
-    order: -1;
-    flex: 0 0 18rem;
     margin-bottom: 0;
     position: sticky;
     top: var(--spacing-mediano);
 }
 
 main.con-aside>.contenido-reservas {
-    flex: 1;
     min-width: 0;
 }
 
@@ -501,6 +525,16 @@ main.con-aside>.contenido-reservas {
     align-self: flex-start;
     padding: var(--spacing-mediano) var(--spacing-extra-grande);
     border-radius: var(--radius-pastilla);
+}
+
+#formulario-reserva .fila-campos {
+    display: flex;
+    gap: var(--spacing-mediano);
+}
+
+#formulario-reserva .fila-campos .campo {
+    flex: 1;
+    min-width: 0;
 }
 
 /* ==========================================================================
@@ -596,13 +630,10 @@ main.con-aside>.contenido-reservas {
     }
 
     main.con-aside {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
     main.con-aside>#correo-contacto {
-        order: 0;
-        flex: none;
-        width: 100%;
         position: static;
     }
 
