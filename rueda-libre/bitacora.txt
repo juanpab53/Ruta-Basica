@@ -13,6 +13,7 @@ Valores obtenidos al ejecutar el proyecto actual con la ayuda de la extensión l
 Tecnologías y funcionalidad: 
     HTML: Plasmar la información de manera estructurada por medio de etiquetas.
     CSS: Dar color, forma y distribución al contenido ya plasmado por medio de HTML.
+    CSS: Dar color, forma y distribución al contenido ya plasmado por medio de HTML.
     JAVASCRIPT: Dar funcionalidad a los elementos de la pagina más allá de lo estetico.
 
 Rutas del sitio web:
@@ -237,3 +238,10 @@ VERIFICACIÓN DEL BOX MODEL Y MEDICIÓN DE ANCHO
         %: width de tablas, imágenes e inputs.
         rem: espaciado, radios, tipografía, max-width, flex-basis y min-height.
         vh: min-height de #quienes-somos y height de su imagen.
+
+COLUMNAS DE FLOTA_
+    Cantidad de columas:
+        1280 px: 3 columnas.
+        960 px: 3 columnas.
+        768 px: 2 columna.
+        
