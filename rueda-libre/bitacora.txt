@@ -267,3 +267,64 @@ LAYOUT EN DOS DIMENSIONES (MiniReto 3)
     6. Pie (Flexbox): una fila de tres bloques distribuidos con space-between.
         
     Ahora main con aside está a la derecha y se trabaja con Grid.
+
+MOBILE-FIRST
+    Los estilos base (sin media query) describen la versión móvil en una sola columna.
+    Dos media queries con min-width amplían el diseño: 768px (tablet) y 1200px (escritorio).
+    En cada punto cambia solo lo que el contenido necesita.
+ 
+    Puntos de corte:
+        768px: encabezado y pie en fila; portada en 2 columnas; galería de rutas en 3 columnas;
+               fila de campos del formulario lado a lado; tablas con su relleno y letra normales;
+               relleno de las tarjetas de 2rem.
+        1200px: portada a pantalla completa con imagen de 60vh; reservas en 2fr / 1fr con el
+                contacto a la derecha (sticky).
+ 
+    Comportamiento del encabezado:
+        360 px: el nombre del negocio va arriba (logo y nombre centrados) y el menú debajo, centrado.
+        768 px y 1280 px: logo y nombre a la izquierda y menú a la derecha, en una fila (justify-content: space-between).
+ 
+    Comportamiento del pie:
+        360 px: nombre y correo, menú y copyright apilados y centrados.
+        768 px y 1280 px: los tres bloques en una fila, distribuidos con space-between.
+ 
+    Columnas de "Nuestra flota" por ancho (repeat(auto-fit, minmax(18rem, 1fr)), sin media queries):
+        360 px: 1 columna.
+        768 px: 2 columnas.
+        1280 px: 3 columnas.
+ 
+    Cambia el número de columnas según el ancho: una columna en móvil y las columnas del boceto desde 768px / 1200px.
+ 
+    Problemas responsive encontrados y cómo se resolvieron:
+ 
+    1. El layout de escritorio también se aplicaba en el celular.
+        Observado a 360 px: la portada seguía en 2 columnas de 148 px (la imagen quedaba de 148 x 444 px
+        por su altura de 60vh) y la galería de rutas en 3 tarjetas de 88 px de ancho.
+        Solución: la base pasó a una sola columna (grid-template-columns: 1fr). Las 2 columnas de la
+        portada y las 3 de la galería se activan con min-width: 768px. En móvil la imagen de la portada
+        usa aspect-ratio 4 / 3 en lugar de 60vh. 
+ 
+    2. Las tablas de tarifas obligaban a desplazarse de lado.
+        Observado a 360 px: la tabla medía 512 px (table { min-width: 32rem }) dentro de 294 px visibles.
+        Solución: se quitó el min-width; en móvil las celdas usan relleno 0.5rem 0.25rem y letra de 0.75rem;
+        desde 768px recuperan 1rem y letra de 1rem. 
+ 
+    3. Los campos "Documento" y "Celular" quedaban demasiado angostos.
+        Observado a 360 px: 122 px por campo en la misma fila (el placeholder "Ej: 3001234567" no cabía).
+        Solución: la fila se apila en móvil (flex-direction: column) y pasa a fila desde 768px.
+ 
+    4. La portada a pantalla completa solo funciona en escritorio.
+        Observado: el cálculo min-height: calc(100vh - 13.8rem) supone un título de una línea; a 360 px
+        el título ocupa 3 líneas y el valor deja de ser correcto.
+        Solución: ese cálculo y la imagen de 60vh pasaron al breakpoint de 1200px.
+        la sección siguiente empieza justo en el borde inferior de la pantalla.
+ 
+    5. (Publicación) Enlace con ruta absoluta.
+        Observado: en "¿Cómo alquilar?" el enlace /pages/tarifas.html apunta a la raíz del dominio y
+        no a la carpeta del proyecto; en GitHub Pages da 404.
+        Solución: se cambió a ruta relativa: pages/tarifas.html.
+ 
+    Unidades usadas (actualización):
+        px: bordes (1px), altura de imágenes de tarjetas (200px), .sr-only y los puntos de corte 768px y 1200px.
+        fr: columnas de las cuadrículas.
+        rem / %: espaciado, tipografía, anchos fluidos.
