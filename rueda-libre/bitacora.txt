@@ -13,6 +13,7 @@ Valores obtenidos al ejecutar el proyecto actual con la ayuda de la extensión l
 Tecnologías y funcionalidad: 
     HTML: Plasmar la información de manera estructurada por medio de etiquetas.
     CSS: Dar color, forma y distribución al contenido ya plasmado por medio de HTML.
+    CSS: Dar color, forma y distribución al contenido ya plasmado por medio de HTML.
     JAVASCRIPT: Dar funcionalidad a los elementos de la pagina más allá de lo estetico.
 
 Rutas del sitio web:
