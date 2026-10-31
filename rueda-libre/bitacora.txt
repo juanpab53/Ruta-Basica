@@ -328,3 +328,55 @@ MOBILE-FIRST
         px: bordes (1px), altura de imágenes de tarjetas (200px), .sr-only y los puntos de corte 768px y 1200px.
         fr: columnas de las cuadrículas.
         rem / %: espaciado, tipografía, anchos fluidos.
+
+Tiempo invertido:
+    Versión con Bootstrap (esta prueba): 40 min, medidos con cronómetro desde que empecé la grilla hasta
+    comprobar 1, 2, 3 y 4 columnas en DevTools.
+    Método: lo escribí casi desde cero, reutilice el html de otros apartados borrando sus clases y buscando en la documentación 
+    de bootstrap.
+ 
+Distribución de la flota con Bootstrap (siete modelos):
+    <div class="row g-4"> con cada tarjeta dentro de <div class="col-12 col-sm-6 col-lg-4 col-xl-3">.
+    Ancho                 Columnas   Reparto de los 7 modelos
+    360 px (celular)      1          1 por fila
+    576 px  (sm)          2          2 + 2 + 2 + 1
+    768 px                2          2 + 2 + 2 + 1
+    992 px  (lg)          3          3 + 3 + 1
+    1200 px (xl)          4          4 + 3
+    Separación entre tarjetas con g-4: 24 px en horizontal y en vertical.
+    Los puntos de cambio son 576, 992 y 1200 px; 768 px (md) no cambia nada en esta flota porque no usé col-md-*.
+ 
+Cantidad de código para distribuir la flota:
+                                        Mi versión (CSS propio)          Bootstrap
+    CSS propio de distribución          10 líneas (6 declaraciones):     0 líneas
+                                        #nuestra-flota y su h2
+    CSS propio de alineación interna    15 líneas (7 declaraciones):     0 líneas
+    de la tarjeta                       flex en columna, margin-top:auto,
+                                        márgenes
+    Clases de Bootstrap (grilla)        -                                7 distintas, 31 usos
+                                                                         (container, row, g-4 y 4 clases col-* por
+                                                                         cada una de las 7 tarjetas)
+    Otras clases de Bootstrap           -                                17 distintas, 115 usos (tarjeta, botón,
+    (tarjeta, botón, imagen)                                             imagen con ratio, espaciado)
+    HTML de la sección de la flota      52 líneas                        106 líneas (envuelve cada tarjeta en
+                                                                         div.col > article.card > div.card-body)
+    Archivos que carga la página        styles.css: 16.283 bytes         bootstrap.min.css: 232.000 bytes 
+                                                                         bootstrap.bundle.min.js: 80.496 bytes
+ 
+Qué me dio Bootstrap sin esfuerzo:
+    - Los puntos de corte ya definidos (576, 768, 992, 1200 y 1400 px): sin media queries ni cálculos propios.
+    - El número de columnas por ancho se lee directamente en las clases (col-sm-6 = 2, col-lg-4 = 3, col-xl-3 = 4).
+    - La separación uniforme en ambos ejes con una sola clase (g-4).
+    - Tarjetas de la misma altura (h-100) y botón siempre al final (mt-auto, el mismo principio que mi margin-top: auto).
+    - Imágenes recortadas a una proporción fija (ratio ratio-4x3 + object-fit-cover) sin escribir CSS.
+ 
+Qué control perdí:
+    - El número de columnas depende de puntos de corte fijos y no del espacio real: a 960 px mi cuadrícula
+      (auto-fit + minmax(18rem, 1fr)) muestra 3 columnas y la de Bootstrap 2, porque lg empieza en 992 px.
+      A la inversa, la mía nunca pasa de 3 columnas (el main mide como máximo 70rem), y Bootstrap llega a 4 con xl.
+    - La identidad visual: el botón es amarillo de Bootstrap (btn-warning) y no el naranja pedal; la tipografía,
+      los colores y los radios de la marca no se aplican sin volver a escribir CSS.
+    - Peso: unos 232 KB de CSS para usar solo la grilla, la tarjeta y el botón.
+    - Más HTML: hay que repetir 4 clases col-* en cada tarjeta y añadir contenedores intermedios.
+    - Igual que en mi versión, con siete modelos la última fila queda incompleta (1 tarjeta a 992 px, 3 a 1200 px).
+ 
