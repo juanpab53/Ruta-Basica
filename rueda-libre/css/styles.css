@@ -379,6 +379,7 @@ main>h1,
  
 table {
     width: 100%;
+    min-width: 32rem;
     border-collapse: collapse;
 }
  
