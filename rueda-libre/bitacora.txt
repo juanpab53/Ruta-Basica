@@ -237,3 +237,10 @@ VERIFICACIÓN DEL BOX MODEL Y MEDICIÓN DE ANCHO
         %: width de tablas, imágenes e inputs.
         rem: espaciado, radios, tipografía, max-width, flex-basis y min-height.
         vh: min-height de #quienes-somos y height de su imagen.
+
+COLUMNAS DE FLOTA_
+    Cantidad de columas:
+        1280 px: 3 columnas.
+        960 px: 3 columnas.
+        768 px: 2 columna.
+        
