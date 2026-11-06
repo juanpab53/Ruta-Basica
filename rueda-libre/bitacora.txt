@@ -379,4 +379,123 @@ Qué control perdí:
     - Peso: unos 232 KB de CSS para usar solo la grilla, la tarjeta y el botón.
     - Más HTML: hay que repetir 4 clases col-* en cada tarjeta y añadir contenedores intermedios.
     - Igual que en mi versión, con siete modelos la última fila queda incompleta (1 tarjeta a 992 px, 3 a 1200 px).
+
+PROTOTIPO DE LA SECCIÓN PRINCIPAL CON TAILWIND (PLAY CDN)
+    Archivo: nocturna/prototipo.html
+    La página carga Tailwind con el Play CDN y arma la sección solo con utilidades, sin <style> ni style="":
+        - Espaciado: p-6, p-8, sm:p-12, space-y-6, space-x-8, px-8, py-4.
+        - Tamaños: w-full, max-w-3xl, max-w-xl, max-w-xs, min-h-screen.
+        - Colores: bg-slate-950, bg-slate-900, bg-amber-400, text-white, text-slate-300, text-slate-950, text-amber-400.
+        - Tipografía: text-xs, text-4xl, sm:text-6xl, font-semibold, font-bold, leading-tight,
+          leading-relaxed, tracking-tight, tracking-widest, uppercase.
+    La campaña muestra la etiqueta "Nuevo · Jueves a sábado", un único h1 "Rueda Nocturna", el subtítulo
+    "Descubre Medellín en bici cuando se encienden las luces", los datos "3 rutas" y "Desde $55.000", y el
+    enlace "Inscríbete" con apariencia de botón.
+
+    Botón "Inscríbete" en la semana 2 (Bootstrap):
+        Se construyó con un enlace que usa clases de componente ya resueltas:
+            <a class="btn btn-warning mt-auto" href="../pages/reservas.html">Reservar</a>
+        La clase btn aporta relleno, tamaño de letra, alineación y estados; btn-warning impone el color
+        amarillo del framework. Para acercarlo a la identidad de la marca había que sobrescribir estilos
+        con CSS propio. Fue rápido porque el botón ya venía diseñado.
+
+    Botón "Inscríbete" hoy (Tailwind):
+        Se construyó combinando utilidades sobre el mismo tipo de enlace, sin una clase "botón":
+            <a href="#inscripcion" class="inline-block w-full max-w-xs bg-amber-400 px-8 py-4
+            text-center text-sm font-bold uppercase tracking-widest text-slate-950 hover:bg-amber-300">
+            Inscríbete</a>
+        inline-block y text-center definen la forma; w-full y max-w-xs el ancho; px-8 y py-4 el relleno;
+        bg-amber-400 y text-slate-950 los colores; y text-sm, font-bold, uppercase y tracking-widest la
+        tipografía. hover:bg-amber-300 agrega el estado sin escribir CSS aparte.
+
+    Diferencia clave:
+        Un framework de componentes (Bootstrap) entrega piezas cerradas y ya estilizadas (btn, btn-warning)
+        que se usan tal cual o se sobrescriben. Un framework utility-first (Tailwind) entrega clases pequeñas
+        de una sola propiedad que se combinan para construir la pieza. En Bootstrap el diseño del botón está
+        decidido de antemano; en Tailwind se decide en el HTML, con más control pero más clases visibles.
+
+PROYECTO TAILWIND CON CLI Y BIBLIOTECA DE BOTONES
+    Configuración (Tailwind v3):
+        En nocturna/ se instaló tailwindcss 3.4.19 con npm; en v3 la CLI viene incluida en ese mismo
+        paquete, por eso no se instaló un paquete @tailwindcss/cli aparte.
+        src/input.css contiene las directivas de v3:
+            @tailwind base;
+            @tailwind components;
+            @tailwind utilities;
+        tailwind.config.js define content: ["./index.html"] para indicar a la CLI dónde buscar las clases.
+        nocturna/.gitignore contiene node_modules/ para que esa carpeta no llegue a GitHub.
+        La CLI se ejecutó en modo observación desde nocturna/:
+            ./node_modules/.bin/tailwindcss -i ./src/input.css -o ./src/output.css --watch
+        (también funciona con npx tailwindcss).
+
+        nocturna/index.html carga ./src/output.css (ya no usa el Play CDN) y conserva la sección
+        principal del prototipo. src/output.css se versiona porque GitHub Pages no ejecuta la CLI.
+
+    Clase usada y clase no usada en output.css:
+        Usada: .bg-slate-950 aparece porque el <body> de index.html usa bg-slate-950.
+        No usada: .bg-pink-500 no aparece porque ninguna etiqueta de los archivos escaneados usa
+        bg-pink-500. Lo mismo ocurre con text-fuchsia-500, que tampoco se usa.
+        Por qué ocurre: Tailwind no genera una hoja con todas sus utilidades. La CLI lee los archivos
+        del proyecto, encuentra las clases escritas en el HTML y genera solo esas. Por eso una clase
+        que no se usa no ocupa espacio en output.css.
+
+    Botones (tres variantes con estados):
+        Principal (fondo ámbar):
+            bg-amber-400 text-slate-950 hover:bg-amber-300 focus:ring-4 focus:ring-amber-200
+        Secundario (fondo gris):
+            bg-slate-700 text-white hover:bg-slate-600 focus:ring-4 focus:ring-slate-400
+        Contorno (borde ámbar sin relleno):
+            border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-slate-950
+            focus:ring-4 focus:ring-amber-200
+        Las tres variantes comparten rounded-lg, shadow-md (o shadow), px-8, py-4, text-sm,
+        font-bold, uppercase y tracking-widest. Se quitó el contorno nativo con focus:outline-none
+        y se reemplazó por focus:ring-4 con un color de anillo visible.
+
+    Prueba con teclado:
+        Con Tab se recorre el botón principal, el secundario y el de contorno en ese orden.
+        Cada uno recibe el foco y muestra el anillo de 4 px; al pasar el ratón cambia el color de
+        fondo (o de texto en el contorno). El foco no depende solo del color: el anillo agrega una
+        forma visible alrededor del botón.
+
+REGLAS DEL KIT DE COMPONENTES
+    Página: nocturna/componentes.html
+    Componentes incluidos:
+        - Botones principal, secundario y de contorno (MiniReto 2).
+        - Card de la ruta Luces del Centro (MiniReto 3).
+        - Alertas de información, éxito y advertencia.
+        - Campos de correo y celular con etiqueta, texto de ayuda y foco visible.
+
+    Reglas aplicadas:
+        1. Radio: rounded-lg (0.5rem) en botones, card, etiqueta de nivel, alertas e inputs.
+           La card de index.html también se ajustó a rounded-lg para mantener la misma regla.
+        2. Espaciado: escala base de 4 px. Se usan p-4, p-6, px-3, px-4, px-8, py-1, py-2,
+           py-3, py-4, mt-1, gap-4, space-y-2, space-y-4, space-y-6 y space-y-10.
+        3. Colores: superficies bg-slate-950 y bg-slate-900, bordes border-slate-700 y
+           border-slate-800, texto text-white, text-slate-300 y text-slate-400, y acento
+           amber-400/300/200. Las alertas usan un color semántico con fondo al 10%: sky
+           (información), emerald (éxito) y amber (advertencia).
+        4. Sombras: shadow-md en botones; shadow-lg con hover:shadow-2xl en la card.
+        5. Foco: focus:outline-none + focus:ring-4 + focus:ring-amber-200 (o
+           focus:ring-slate-400 en el botón secundario) y focus:border-amber-400 en los inputs.
+        6. Estructura: las variantes comparten clases base; solo cambian los datos, el color
+           de la etiqueta de nivel y el contenido del texto.
+
+    Accesibilidad:
+        - La alerta de éxito usa role="status" y aria-live="polite" para que el lector de
+          pantalla la anuncie como aviso.
+        - La alerta informativa usa role="note" y la advertencia role="alert".
+        - Cada input tiene un <label for="..."> visible y aria-describedby apuntando al texto
+          de ayuda.
+        - Botones, enlaces e inputs son elementos nativos y reciben foco con Tab.
+
+    Verificación de generación de clases:
+        Se actualizó tailwind.config.js con content: ["./index.html", "./componentes.html"] y
+        se regeneró src/output.css. Las clases usadas en la página, como bg-sky-500/10,
+        border-l-4, focus:border-amber-400 y hover:shadow-2xl, aparecen en output.css.
+        bg-pink-500 sigue ausente porque no se usa en ningún archivo escaneado.
+
+    Publicación:
+        URL de GitHub Pages:
+        https://juanpab53.github.io/Ruta-Basica/rueda-libre/nocturna/componentes.html
+        La página queda disponible cuando el commit llega a main y se ejecuta el workflow de Pages.
  
