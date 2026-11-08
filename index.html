@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ruta Básica | Riwi</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          <i class="bi bi-code-slash"></i>
+          Ruta Básica
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#inicio">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#proyectos">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#acerca">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://github.com/juanpab53/Ruta-Basica"
+                target="_blank"
+              >
+                GitHub <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO / PRESENTATION -->
+    <header class="hero text-center" id="inicio">
+      <div class="container">
+        <h1 class="display-4 fw-bold">Ruta Básica - Riwi</h1>
+
+        <p class="lead mt-3">
+          Un espacio para explorar, los proyectos web realizado durante el
+          desarrollo de la ruta basica en Riwi
+        </p>
+
+        <a href="#proyectos" class="btn btn-light btn-lg mt-3">
+          Explorar proyectos
+          <i class="bi bi-arrow-down"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- PROJECTS -->
+    <main class="container py-5" id="proyectos">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Mis proyectos y prácticas</h2>
+        <p class="text-muted">
+          Explora los diferentes trabajos realizados durante el proceso de
+          formación que requieren de interfaces web
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <section class="bg-white py-5" id="cards">
+          <!-- HTML 
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-filetype-html project-icon text-danger"></i>
+    
+                            <h5 class="card-title fw-bold mt-3">Prácticas HTML</h5>
+    
+                            <p class="card-text text-muted">
+                                Ejercicios de estructura, etiquetas y fundamentos del desarrollo
+                                web.
+                            </p>
+    
+                            <a href="./PracticasHtml/" class="btn btn-outline-danger">
+                                Explorar <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                -->
+          <!-- JAVASCRIPT 
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-filetype-js project-icon text-warning"></i>
+    
+                            <h5 class="card-title fw-bold mt-3">Prácticas JavaScript</h5>
+    
+                            <p class="card-text text-muted">
+                                Lógica, programación, funciones e interactividad en páginas web.
+                            </p>
+    
+                            <a href="./PracticasJavaScript/" class="btn btn-outline-warning">
+                                Explorar <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                -->
+          <!-- RUEDA LIBRE -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card project-card h-100 shadow-sm">
+              <div class="card-body text-center p-4">
+                <i class="bi bi-bicycle project-icon text-info"></i>
+
+                <h5 class="card-title fw-bold mt-3">Rueda Libre</h5>
+
+                <p class="card-text text-muted">
+                  Proyecto sobre bicicletas en Medellín y sus alrededores.
+                </p>
+
+                <a href="./rueda-libre/" class="btn btn-outline-info">
+                  Explorar <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ABOUT -->
+    <section class="bg-white py-5" id="acerca">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-3">Acerca de este repositorio</h2>
+
+        <p class="text-muted mx-auto" style="max-width: 700px">
+          Este repositorio reúne mi proceso de aprendizaje durante la Ruta
+          Básica de Riwi. Aquí encontrarás ejercicios, experimentos y proyectos
+          que reflejan mi evolución en programación y desarrollo web.
+        </p>
+
+        <a
+          href="https://github.com/juanpab53"
+          target="_blank"
+          class="btn btn-dark mt-3"
+        >
+          <i class="bi bi-github"></i>
+          Visitar mi GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-4">
+      <div class="container">
+        <p class="mb-1">
+          Desarrollado por
+          <strong>Juan Pablo Aparicio</strong>
+        </p>
+
+        <p class="text-secondary mb-0">Ruta Básica · Riwi · 2026</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

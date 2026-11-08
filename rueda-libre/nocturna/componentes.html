@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit de componentes | Rueda Nocturna</title>
+    <link href="./src/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-slate-950">
+    <main class="mx-auto w-full max-w-4xl space-y-10 p-6">
+        <header class="space-y-2">
+            <p class="text-xs font-semibold uppercase tracking-widest text-amber-400">Rueda Libre · Rueda Nocturna</p>
+            <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Kit de componentes</h1>
+            <p class="max-w-2xl text-sm leading-relaxed text-slate-300">Botones, card, alertas y campos de formulario
+                con las reglas del kit: radio rounded-lg, escala de espaciado de 4 px y paleta slate con acento ámbar.
+            </p>
+        </header>
+
+        <section class="space-y-4" aria-labelledby="botones">
+            <h2 id="botones" class="text-2xl font-bold text-white">Botones</h2>
+            <div class="flex flex-wrap gap-4">
+                <a href="./index.html#inscripcion"
+                    class="inline-block rounded-lg bg-amber-400 px-8 py-4 text-center text-sm font-bold uppercase tracking-widest text-slate-950 shadow-md hover:bg-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-200">Inscríbete</a>
+                <a href="./index.html#rutas"
+                    class="inline-block rounded-lg bg-slate-700 px-8 py-4 text-center text-sm font-bold uppercase tracking-widest text-white shadow hover:bg-slate-600 focus:outline-none focus:ring-4 focus:ring-slate-400">Ver rutas</a>
+                <a href="./index.html#info"
+                    class="inline-block rounded-lg border-2 border-amber-400 bg-transparent px-8 py-4 text-center text-sm font-bold uppercase tracking-widest text-amber-400 hover:bg-amber-400 hover:text-slate-950 focus:outline-none focus:ring-4 focus:ring-amber-200">Más información</a>
+            </div>
+        </section>
+
+        <section class="space-y-4" aria-labelledby="card">
+            <h2 id="card" class="text-2xl font-bold text-white">Card de ruta</h2>
+            <article
+                class="max-w-xl overflow-hidden rounded-lg border border-slate-700 bg-slate-900 shadow-lg transition-shadow duration-300 hover:border-amber-400 hover:shadow-2xl">
+                <img src="../img/neighborhood.png" alt="Ciclistas recorriendo el centro de Medellín de noche"
+                    class="h-48 w-full object-cover sm:h-56">
+                <div class="space-y-4 p-6">
+                    <span
+                        class="inline-block rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-300">Nivel
+                        fácil</span>
+                    <h3 class="text-2xl font-bold text-white">Luces del Centro</h3>
+
+                    <dl class="divide-y divide-slate-800 border-y border-slate-800">
+                        <div class="flex items-center justify-between py-2">
+                            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">Distancia</dt>
+                            <dd class="text-sm font-semibold text-white">10 km</dd>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">Duración</dt>
+                            <dd class="text-sm font-semibold text-white">2 h</dd>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">Punto de encuentro</dt>
+                            <dd class="text-sm font-semibold text-white">Sede Rueda Libre</dd>
+                        </div>
+                    </dl>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Precio</p>
+                            <p class="text-2xl font-bold text-amber-400">$55.000</p>
+                        </div>
+                        <a href="./index.html#inscripcion"
+                            class="inline-block rounded-lg bg-amber-400 px-8 py-4 text-center text-sm font-bold uppercase tracking-widest text-slate-950 shadow-md hover:bg-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-200">Reservar</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="space-y-4" aria-labelledby="alertas">
+            <h2 id="alertas" class="text-2xl font-bold text-white">Alertas</h2>
+            <div class="space-y-4">
+                <div role="note" class="rounded-lg border-l-4 border-sky-400 bg-sky-500/10 p-4">
+                    <p class="text-sm font-bold text-sky-300">Información</p>
+                    <p class="mt-1 text-sm leading-relaxed text-sky-200">Las rutas salen de la sede de Rueda Libre e
+                        incluyen bicicleta, casco, luces LED, chaleco reflectivo y guía.</p>
+                </div>
+
+                <div role="status" aria-live="polite" class="rounded-lg border-l-4 border-emerald-400 bg-emerald-500/10 p-4">
+                    <p class="text-sm font-bold text-emerald-300">Éxito</p>
+                    <p class="mt-1 text-sm leading-relaxed text-emerald-200">Tu inscripción quedó registrada. Te
+                        enviaremos la confirmación por correo electrónico.</p>
+                </div>
+
+                <div role="alert" class="rounded-lg border-l-4 border-amber-400 bg-amber-500/10 p-4">
+                    <p class="text-sm font-bold text-amber-300">Advertencia</p>
+                    <p class="mt-1 text-sm leading-relaxed text-amber-200">Llega 15 minutos antes de la salida y revisa
+                        que las luces de tu bicicleta funcionen correctamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-4" aria-labelledby="formulario">
+            <h2 id="formulario" class="text-2xl font-bold text-white">Campos de formulario</h2>
+            <form class="max-w-xl space-y-6">
+                <div class="space-y-2">
+                    <label for="correo" class="block text-sm font-semibold text-white">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="tu@correo.com" autocomplete="email"
+                        aria-describedby="correo-ayuda"
+                        class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none focus:ring-4 focus:ring-amber-200">
+                    <p id="correo-ayuda" class="text-xs leading-relaxed text-slate-400">Lo usaremos para enviarte la
+                        confirmación de la reserva.</p>
+                </div>
+
+                <div class="space-y-2">
+                    <label for="celular" class="block text-sm font-semibold text-white">Celular</label>
+                    <input type="tel" id="celular" name="celular" placeholder="300 123 4567" autocomplete="tel"
+                        inputmode="numeric" aria-describedby="celular-ayuda"
+                        class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none focus:ring-4 focus:ring-amber-200">
+                    <p id="celular-ayuda" class="text-xs leading-relaxed text-slate-400">Escribe un número de 10 dígitos
+                        para contactarte el día de la ruta.</p>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
